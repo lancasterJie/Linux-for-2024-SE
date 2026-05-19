@@ -21,37 +21,16 @@ Bash
 Bash
 
    `ls /not_exist_dir > /tmp/normal.log
-   # 现象：终端依然打印了报错信息，而 normal.log 为空（因为 1 与 2 是分离的）` 
 
-1. 将错误信息单独捕获到日志中：
+2. 将错误信息单独捕获到日志中：
 
 Bash
 
    `ls /not_exist_dir 2> /tmp/error.log
    cat /tmp/error.log`
 
-### 任务 3：标准输入重定向
 
-1. 利用 `<` 将文件内容作为 `wc`（字数统计）命令的输入：
-
-Bash
-
-   `wc -l < /etc/passwd
-   # 注意：这种方式与 "wc -l /etc/passwd" 的区别在于，输出中不会附带文件名`
-
-1. 使用 `<<`（Here Document）在脚本中生成多行文本块：
-
-Bash
-
-   `cat << EOF > /tmp/script_config.ini
-   [server]
-   host = 127.0.0.1
-   port = 8080
-   EOF`
-
----
-
-### 任务 4：高频进程与内存监控
+### 任务 3：高频进程与内存监控
 
 - **场景需求**：找出当前系统中占用内存最高的前 5 个进程，并将其进程名、PID 以及内存使用率记录下来。
 - **命令流水线**：
